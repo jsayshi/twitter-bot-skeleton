@@ -21,8 +21,9 @@ tweetnumber =
 
 tweets = tweepy.Cursor(api.search, hashtag).items(tweetnumber)
 
-#Function to engage user's twitterbot with other twitter users. The tweepy documentation shows you different ways to engage.
+
 def search_bot():
+	"""Function to engage user's twitterbot with other twitter users. The tweepy documentation shows you different ways to engage."""
 	for tweet in tweets:
 		try:
 			api.create_favorite(tweet.id)
