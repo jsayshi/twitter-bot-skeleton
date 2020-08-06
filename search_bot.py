@@ -1,11 +1,13 @@
 import tweepy
 import time
+import os
+from os import environ
 
 #You will need to get these from twitter and keep them SECRET! Apply for a developer account and follow the instructions.
-consumer_key = 
-consumer_secret = 
-key = 
-secret = 
+consumer_key = environ['CONSUMER_KEY']
+consumer_secret = environ['CONSUMER_SECRET']
+key = environ['ACCESS_KEY']
+secret = environ['ACCESS_SECRET']
 
 #The tweepy documentation is a must read and you will find the code below there.
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
