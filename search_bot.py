@@ -16,10 +16,10 @@ auth.set_access_token(key, secret)
 api = tweepy.API(auth)
 
 #Input hashtag you are targeting.
-hashtag = 
+hashtag = "pennystocks"
 
 #Input amount of tweets you want tyo engage with. Keep it reasonable to stay within rate limits.
-tweetnumber = 
+tweetnumber = 200
 
 tweets = tweepy.Cursor(api.search, hashtag).items(tweetnumber)
 
@@ -28,8 +28,9 @@ def search_bot():
 	"""Function to engage user's twitterbot with other twitter users. The tweepy documentation shows you different ways to engage."""
 	for tweet in tweets:
 		try:
+			tweet.retweet()
 			api.create_favorite(tweet.id)
-			
+			time.sleep(400)
 			
 		except tweepy.TweepError as e:
 			print(e.reason)
